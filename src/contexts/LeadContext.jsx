@@ -21,7 +21,7 @@ export const LeadProvider = ({ children }) => {
     getData: getAgents,
   } = useAxios('https://anvaya-dashboard-backend.vercel.app/api/agents');
 
-  const { data: tags } = useAxios(
+  const { data: tags, getData: getTags } = useAxios(
     'https://anvaya-dashboard-backend.vercel.app/api/tags'
   );
 
@@ -37,6 +37,7 @@ export const LeadProvider = ({ children }) => {
         agentsError,
         getAgents,
         tags,
+        getTags,
       }}
     >
       {children}

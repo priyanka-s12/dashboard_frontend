@@ -40,7 +40,14 @@ function Agents() {
                   <tbody>
                     {agents?.map((agent) => (
                       <tr key={agent._id}>
-                        <td>{agent.name}</td>
+                        <td>
+                          <Link
+                            to={`/sales-agent-view/${agent.name}`}
+                            className="text-decoration-none text-black link-body-emphasis"
+                          >
+                            {agent.name}
+                          </Link>
+                        </td>
                         <td>{agent.email}</td>
                       </tr>
                     ))}

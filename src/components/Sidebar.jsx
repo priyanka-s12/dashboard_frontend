@@ -31,7 +31,9 @@ function Sidebar() {
                 className="bi bi-receipt ms-2"
                 style={{ fontSize: '1.5rem' }}
               ></i>
-              <NavLink className="nav-link ms-3">Sales</NavLink>
+              <NavLink className="nav-link ms-3" to="/sales">
+                Sales
+              </NavLink>
             </li>
             <li className="nav-item d-flex">
               <i
@@ -54,7 +56,7 @@ function Sidebar() {
                 className="bi bi-gear-fill ms-2"
                 style={{ fontSize: '1.5rem' }}
               ></i>
-              <NavLink className="nav-link ms-3" to="#">
+              <NavLink className="nav-link ms-3" to="/">
                 Settings
               </NavLink>
             </li>
