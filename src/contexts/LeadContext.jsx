@@ -25,6 +25,22 @@ export const LeadProvider = ({ children }) => {
     'https://anvaya-dashboard-backend.vercel.app/api/tags'
   );
 
+  const { data: totalLeads, getData: getTotalLeads } = useAxios(
+    'https://anvaya-dashboard-backend.vercel.app/report/pipeline'
+  );
+
+  const { data: leadsStatus, getData: getLeadsStatus } = useAxios(
+    'https://anvaya-dashboard-backend.vercel.app/report/leads-by-status'
+  );
+
+  const { data: leadsByAgent, getData: getLeadsByAgent } = useAxios(
+    'https://anvaya-dashboard-backend.vercel.app/report/closed-by-agent'
+  );
+
+  const { data: leadsClosed, getData: getLeadsClosed } = useAxios(
+    'https://anvaya-dashboard-backend.vercel.app/report/last-week'
+  );
+
   return (
     <LeadContext.Provider
       value={{
@@ -38,6 +54,14 @@ export const LeadProvider = ({ children }) => {
         getAgents,
         tags,
         getTags,
+        totalLeads,
+        getTotalLeads,
+        leadsStatus,
+        getLeadsStatus,
+        leadsByAgent,
+        getLeadsByAgent,
+        leadsClosed,
+        getLeadsClosed,
       }}
     >
       {children}

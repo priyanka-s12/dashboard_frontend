@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useLocation, Link } from 'react-router-dom';
 
 function AddLead() {
-  const { agents, getAgents } = useLead();
+  const { agents, getAgents, tags } = useLead();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -37,19 +37,23 @@ function AddLead() {
     'Other',
   ];
 
-  const leadTags = [
-    { label: 'High Value', value: 'High Value' },
-    { label: 'Follow-up', value: 'Follow-up' },
-    { label: 'Urgent', value: 'Urgent' },
-    { label: 'Medium Value', value: 'Medium Value' },
-    { label: 'Low Value', value: 'Low Value' },
-  ];
+  // const leadTags = [
+  //   { label: 'High Value', value: 'High Value' },
+  //   { label: 'Follow-up', value: 'Follow-up' },
+  //   { label: 'Urgent', value: 'Urgent' },
+  //   { label: 'Medium Value', value: 'Medium Value' },
+  //   { label: 'Low Value', value: 'Low Value' },
+  // ];
+
+  const leadTags = tags?.map((tag) => ({ label: tag.name, value: tag._id }));
+  console.log(leadTags);
+  // {label: 'Medium Value', value: '67e7b134e92d087225c83a36'}
 
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   const { state: existingLead } = location;
-  console.log(existingLead);
+  // console.log(existingLead);
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -61,10 +65,11 @@ function AddLead() {
 
   const handleSelectChange = (selected) => {
     setSelectedOptions(selected);
+    // console.log(selected);
 
     setFormData((prevVal) => ({
       ...prevVal,
-      tags: selected.map((tag) => tag.value),
+      tags: selected.map((tag) => tag.label),
     }));
   };
 
@@ -219,7 +224,8 @@ function AddLead() {
               />
               <br />
 
-              <label className="form-label me-2">Select Tags: </label>
+              <label className="form-label me-3">Select Tags:</label>
+              <Link to="/add-tag">Add New Tag</Link>
               <Select
                 name="tags"
                 required

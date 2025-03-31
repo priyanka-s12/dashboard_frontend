@@ -8,7 +8,8 @@ function LeadStatusView() {
   const [searchParams, setSearchParams] = useSearchParams();
   console.log(status);
 
-  const { leads, loading, error, agents, getLeads, getAgents } = useLead();
+  const { leads, loading, error, agents, getLeads, getAgents, tags, getTags } =
+    useLead();
   console.log(leads);
 
   const filteredLeads = leads.filter((lead) => lead.status === status);
@@ -60,6 +61,7 @@ function LeadStatusView() {
   useEffect(() => {
     getLeads();
     getAgents();
+    getTags();
   }, []);
   return (
     <>
@@ -96,15 +98,9 @@ function LeadStatusView() {
                       onClick={(e) => updateFilter('tag', e.target.value)}
                     >
                       <option value="">Select Tag</option>
-                      {[
-                        'High Value',
-                        'Follow-up',
-                        'Low Value',
-                        'Medium Value',
-                        'Urgent',
-                      ].map((tag, index) => (
-                        <option value={tag} key={index}>
-                          {tag}
+                      {tags.map((tag) => (
+                        <option value={tag.name} key={tag._id}>
+                          {tag.name}
                         </option>
                       ))}
                     </select>
@@ -160,7 +156,14 @@ function LeadStatusView() {
                   <tbody>
                     {sortByTime.map((lead) => (
                       <tr key={lead._id}>
-                        <td>{lead.name}</td>
+                        <td>
+                          <Link
+                            to={`/lead-details/${lead._id}`}
+                            className="text-decoration-none text-black link-body-emphasis"
+                          >
+                            {lead.name}
+                          </Link>
+                        </td>
                         <td>{lead.salesAgent.name}</td>
                         <td>{lead.timeToClose}</td>
                         <td>{lead.priority}</td>

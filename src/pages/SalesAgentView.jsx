@@ -132,7 +132,14 @@ function SalesAgentView() {
                 <tbody>
                   {sortByTime.map((lead) => (
                     <tr key={lead._id}>
-                      <td>{lead.name}</td>
+                      <td>
+                        <Link
+                          to={`/lead-details/${lead._id}`}
+                          className="text-decoration-none text-black link-body-emphasis"
+                        >
+                          {lead.name}
+                        </Link>
+                      </td>
                       <td>{lead.status}</td>
                       <td>{lead.timeToClose}</td>
                       <td>{lead.priority}</td>

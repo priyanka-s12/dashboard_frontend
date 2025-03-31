@@ -14,7 +14,7 @@ function Sales() {
         </div>
         <div className="col-md-10 p-3">
           <main className="container-fluid">
-            <h3 className="mb-3">Sales</h3>
+            <h3 className="mb-3">Sales Details</h3>
             <hr />
 
             {loading && <p>Loading...</p>}

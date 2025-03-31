@@ -49,7 +49,9 @@ function Sidebar() {
                 className="bi bi-bar-chart-fill ms-2"
                 style={{ fontSize: '1.5rem' }}
               ></i>
-              <NavLink className="nav-link ms-3">Reports</NavLink>
+              <NavLink className="nav-link ms-3" to="/reports">
+                Reports
+              </NavLink>
             </li>
             <li className="nav-item d-flex">
               <i

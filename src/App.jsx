@@ -10,6 +10,8 @@ import LeadDetails from './pages/LeadDetails';
 import LeadStatusView from './pages/LeadStatusView';
 import SalesAgentView from './pages/SalesAgentView';
 import Sales from './pages/Sales';
+import AddTag from './pages/AddTag';
+import Reports from './pages/Reports';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           />
           <Route path="/sales-agent-view/:name" element={<SalesAgentView />} />
           <Route path="/sales" element={<Sales />} />
+          <Route path="/add-tag" element={<AddTag />} />
+          <Route path="/reports" element={<Reports />} />
         </Routes>
       </Router>
     </LeadProvider>

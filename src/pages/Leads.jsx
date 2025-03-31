@@ -4,7 +4,8 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function Leads() {
-  const { leads, loading, error, agents, getLeads, getAgents } = useLead();
+  const { leads, loading, error, agents, getLeads, getAgents, tags, getTags } =
+    useLead();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const leadStatuses = [
@@ -94,6 +95,7 @@ function Leads() {
   useEffect(() => {
     getLeads();
     getAgents();
+    getTags();
   }, []);
 
   return (
@@ -156,15 +158,9 @@ function Leads() {
                     onClick={(e) => updateFilter('tag', e.target.value)}
                   >
                     <option value="">Select Tag</option>
-                    {[
-                      'High Value',
-                      'Follow-up',
-                      'Low Value',
-                      'Medium Value',
-                      'Urgent',
-                    ].map((tag, index) => (
-                      <option value={tag} key={index}>
-                        {tag}
+                    {tags.map((tag) => (
+                      <option value={tag.name} key={tag._id}>
+                        {tag.name}
                       </option>
                     ))}
                   </select>
