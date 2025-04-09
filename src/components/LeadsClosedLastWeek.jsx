@@ -32,7 +32,7 @@ function LeadsClosedLastWeek() {
     labels: leadsClosed.map((lead) => lead.name),
     datasets: [
       {
-        label: 'Leads Closed Last Week',
+        label: 'Time to Close (in days)',
         data: leadsClosed.map((lead) => lead.timeToClose),
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgb(255, 99, 132)',
