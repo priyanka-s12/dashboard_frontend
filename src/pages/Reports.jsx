@@ -16,7 +16,7 @@ function Reports() {
             <h3 className="mb-3">Reports Overview</h3>
             <hr />
 
-            {/* <div className="row"> */}
+            <div className="row">
             <section className="col-md-6 mb-5">
               <h4 className="text-center">Total Leads Closed & in Pipeline</h4>
               <TotalLeadsReport />
@@ -25,17 +25,17 @@ function Reports() {
               <h4 className="text-center">Leads Closed by Sales Agent</h4>
               <LeadsClosedByAgent />
             </section>
-            {/* </div> */}
+            </div>
 
             <div className="row">
               <section className="col-md-6 mb-5">
                 <h4 className="text-center">Lead Status Distribution</h4>
                 <LeadsStatusReport />
               </section>
-              {/* <section className="col-md-6 mb-5">
+              <section className="col-md-6 mb-5">
                 <h4 className="text-center">Leads Closed Last Week</h4>
                 <LeadsClosedLastWeek />
-              </section> */}
+              </section>
             </div>
           </main>
         </div>

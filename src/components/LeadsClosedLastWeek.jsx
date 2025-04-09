@@ -21,7 +21,7 @@ import useLead from '../contexts/LeadContext';
 import { useEffect } from 'react';
 
 function LeadsClosedLastWeek() {
-  const { leadsClosed, getLeadsClosed } = useLead();
+  const { leads, getLeads, leadsClosed, getLeadsClosed } = useLead();
   console.log(leadsClosed);
 
   useEffect(() => {
