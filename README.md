@@ -23,7 +23,7 @@ Anvaya CRM app focuses on lead management with defined steps for each lead's 
         - Filter options to filter by lead status, agent, source, tag, priority
         - Sort by time to close.
 5. **Reports and Visualizations**:
-    - Useing Chart.js for visualizing lead progress and report data.
+    - Using Chart.js for visualizing lead progress and report data.
         - Leads closed last week (bar chart).
         - Lead distribution by status (pie chart).
         - Lead distribution by sales agent (bar chart).
